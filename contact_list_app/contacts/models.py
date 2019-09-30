@@ -1,5 +1,5 @@
 from django.db import models
-from .validators import email_validator
+# from .validators import email_validator
 # Create your models here.
 
 
@@ -8,7 +8,7 @@ class Address(models.Model):
     city = models.CharField(max_length=32)
     street_name = models.CharField(max_length=64)
     street_number = models.IntegerField()
-    apartment_number = models.IntegerField(null=True)
+    apartment_number = models.IntegerField(blank=True)
 
     class Meta:
 
@@ -21,20 +21,20 @@ class Telephone(models.Model):
     type = models.CharField(max_length=32)
 
 
+class Email(models.Model):
+
+    email_address = models.EmailField(max_length=64, unique=True)
+    type = models.CharField(max_length=32)
+
+
 class Person(models.Model):
 
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=128)
-    description = models.TextField(null=True)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True)
-    telephone = models.ForeignKey(Telephone, on_delete=models.CASCADE, null=True)
-
-
-class Email(models.Model):
-
-    email_address = models.CharField(max_length=64, unique=True, validators=[email_validator])
-    type = models.CharField(max_length=32)
-    owner = models.ForeignKey(Person, on_delete=models.CASCADE)
+    description = models.TextField(blank=True)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE, blank=True)
+    telephone = models.ForeignKey(Telephone, on_delete=models.CASCADE, blank=True)
+    email = models.ForeignKey(Email, on_delete=models.CASCADE)
 
 
 class Groups(models.Model):

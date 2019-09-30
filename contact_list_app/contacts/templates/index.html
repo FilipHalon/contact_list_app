@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>First name</td>
+                <td>Last name</td>
+                <td>Telephone</td>
+                <td>Email</td>
+                <td>Address</td>
+                <td>Description</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in all_contacts %}
+                <tr>
+                    <td>{{ contact.first_name }}</td>
+                    <td>{{ contact.last_name }}</td>
+                    <td>{{ contact.telephone.number }}</td>
+                    <td>{{ contact.email.email_address }}</td>
+                    <td>{{ contact.address.city }}, {{ contact.address.street_name }}, {{ contact.address.street_number }}{% if contact.address.apartment_number %}, {{ contact.address.apartment_number }}{% endif %}</td>
+                    <td>{{ contact.description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
