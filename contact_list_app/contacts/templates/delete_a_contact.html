@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Delete a contact</title>
 </head>
 <body>
-
+    <h4>Are you sure that you want to delete the contact</h4>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" name="delete" value="Delete">
+    </form>
 </body>
 </html>

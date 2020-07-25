@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Contact details</title>
 </head>
 <body>
-
+    <div>
+        First name: {{ contact.first_name }}<br>
+        Last name: {{ contact.last_name }}
+    </div>
+    <div>
+        Telephone<br>
+        Type: {{ contact.telephone.type }}<br>
+        Number: {{ contact.telephone.number }}
+    </div>
+    <div>
+        E-mail<br>
+        Type: {{ contact.email.type }}<br>
+        Address: {{ contact.email.email_address }}
+    </div>
+    <div>
+        Address<br>
+        {{ contact.address.city }}, {{ contact.address.street_name }} {{ contact.address.street_number }}{% if contact.address.apartment_number %}/{{ contact.address.apartment_number }}{% endif %}
+    </div>
+    <div>
+        Description:<br>
+        {{ contact.description }}
+    </div>
 </body>
 </html>

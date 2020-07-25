@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Modify a contact</title>
 </head>
 <body>
-$END$
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label>First name
+            <input type="text" name="first_name" value="{{ contact.first_name }}">
+        </label>
+        <label>Last name
+            <input type="text" name="last_name" value="{{ contact.last_name }}">
+        </label>
+        <label>Telephone
+            <label>Number
+                <input type="text" name="telephone_number" value="{{ contact.telephone.number }}">
+            </label>
+            <label>Type
+                <input type="text" name="telephone_type" value="{{ contact.telephone.type }}">
+            </label>
+        </label>
+        <label>Email
+            <label>Address
+                <input type="email" name="email_address" value={{ contact.email.email_address }}>
+            </label>
+            <label>Type
+                <input type="text" name="email_type" value="{{ contact.email.type }}">
+            </label>
+        </label>
+        <label>Address
+            <label>City
+                <input type="text" name="city" value="{{ contact.address.city }}">
+            </label>
+            <label>Street name
+                <input type="text" name="street_name" value="{{ contact.address.street_name }}">
+            </label>
+            <label>Street number
+                <input type="text" name="street_number" value="{{ contact.address.street_number }}">
+            </label>
+            <label>Apartment number
+                <input type="text" name="apartment_number" value="{{ contact.address.apartment_number }}">
+            </label>
+        </label>
+        <label>Description
+            <input type="text" name="description" value="{{ contact.description }}">
+        </label>
+        <button type="submit">Add a new contact</button>
+    </form>
 </body>
 </html>

@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from contact_list_app.contacts.views import Index
+from contact_list_app.contacts.views import Index, AddANewContact, ModifyAContact, DeleteAContact, ContactDetails
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', Index.as_view()),
+    path('/', Index.as_view(), name='index'),
+    path('new/', AddANewContact.as_view(), name='new'),
+    re_path(r'^modify/(?P<contact_id>\d+)$', ModifyAContact.as_view(), name='modify'),
+    re_path(r'^delete/(?P<contact_id>\d+)$', DeleteAContact.as_view(), name='delete'),
+    re_path(r'^details/(?P<contact_id>\d+)$', ContactDetails.as_view(), name='details'),
 ]

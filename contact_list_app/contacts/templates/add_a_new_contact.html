@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add a new contact</title>
 </head>
 <body>
-
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label>First name
+            <input type="text" name="first_name">
+        </label>
+        <label>Last name
+            <input type="text" name="last_name">
+        </label>
+        <label>Telephone
+            <label>Number
+                <input type="text" name="telephone_number">
+            </label>
+            <label>Type
+                <input type="text" name="telephone_type">
+            </label>
+        </label>
+        <label>Email
+            <label>Address
+                <input type="email" name="email_address">
+            </label>
+            <label>Type
+                <input type="text" name="email_type">
+            </label>
+        </label>
+        <label>Address
+            <label>City
+                <input type="text" name="city">
+            </label>
+            <label>Street name
+                <input type="text" name="street_name">
+            </label>
+            <label>Street number
+                <input type="text" name="street_number">
+            </label>
+            <label>Apartment number
+                <input type="text" name="apartment_number">
+            </label>
+        </label>
+        <label>Description
+            <textarea name="description" cols="30" rows="10"></textarea>
+        </label>
+        <button type="submit">Add a new contact</button>
+    </form>
 </body>
 </html>
